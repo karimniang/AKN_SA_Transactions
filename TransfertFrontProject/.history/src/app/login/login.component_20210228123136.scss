@@ -1,0 +1,28 @@
+.monBody {
+  height: 100vh;
+  background-color: #F2F2F2;
+}
+
+.ourLogo {
+  height: 40vh;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 5%;
+
+  .positionImg {
+    position: absolute;
+    left: 136px;
+    top: 110px;
+  }
+  .login {
+      text-align: center;
+
+
+      background-color: mediumblue;
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    left: 150px;
+    top: 328px;
+  }
+}
