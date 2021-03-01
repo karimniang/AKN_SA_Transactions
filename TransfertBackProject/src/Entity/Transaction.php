@@ -39,6 +39,11 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *      "GET"={
  *          "normalization_context"={"groups"={"trans:on"}}
  *      },
+ *      "get_part_tiers"= {
+ *          "method"="GET",
+ *          "path"="/transactions/part/tiers",
+ *          "normalization_context"={"groups"={"part:tiers"}}
+ *      },
  *      "PUT"
  *     }
  * )
@@ -49,13 +54,13 @@ class Transaction
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups ({"trans:on"})
+     * @Groups ({"trans:on","part:tiers"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups ({"transaction:done","transaction:retrait","trans:on"})
+     * @Groups ({"transaction:done","transaction:retrait","trans:on","part:tiers"})
      */
     private $montant;
 
@@ -85,16 +90,19 @@ class Transaction
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups ({"part:tiers"})
      */
     private $frais_depot;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups ({"part:tiers"})
      */
     private $frais_retrait;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups ({"part:tiers"})
      */
     private $frais_etat;
 
