@@ -1,0 +1,76 @@
+<ion-content>
+    <div class="h-100">
+        <app-header-transactions icon="arrow-undo" name="Retrait"></app-header-transactions>
+
+        <ion-item lines="full" class="w-75 mx-auto" color="tint">
+            <ion-label color="medium" position="floating">Code de Transaction</ion-label>
+            <ion-input name="code" (change)="this.clickCode($event)" (ionInput)="this.clairInput($event)" maxlength="12" [(ngModel)]="this.codeRetrait"></ion-input>
+        </ion-item>
+        <div class="w-75 mx-auto">
+            <small class="text-danger" *ngIf="!this.validCode">Veuillez entrer un code valide</small>
+        </div>
+            <!-- <small *ngIf="this.codeRetrait && this.codeRetrait.length == 12 && !this.transaction">this tra does not exist</small> -->
+        
+
+        <div class="row bg-white mt-4 menuDepot">
+            <div class="col-6 pt-2 text-center">
+                <ion-text class="btn" (click)="this.clickBenef()"> Bénéficiaire</ion-text>
+                <span *ngIf="this.seeBeneficiaire" class="barBenef"></span>
+            </div>
+            <div class="col-6 pt-2 text-center">
+                <ion-text class="btn" (click)="this.clickEmetteur()"> Emetteur</ion-text>
+                <span *ngIf="this.seeEmetteur" class="barEmetteur"></span>
+            </div>
+        </div>
+        <div class="formTransaction">
+            <form action="" *ngIf="this.transaction">
+                <div *ngIf="this.seeBeneficiaire">
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">N° CNI</ion-label>
+                        <ion-input name="cni"></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">NOM & PRÉNOM</ion-label>
+                        <ion-input  name="nomRecepteur" value="{{this.transaction.clientRetrait.nom_complet}}"></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">MONTANT À RECEVOIR</ion-label>
+                        <ion-input name="montantRecepteur" value="{{this.transaction.montant}}"></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">Téléphone</ion-label>
+                        <ion-input name="telRecepteur" value="{{this.transaction.clientRetrait.telephone}}"></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">DATE D'ENVOI</ion-label>
+                        <ion-input name="dateRecepteur" value="{{this.transaction.date_depot}}"></ion-input>
+                    </ion-item>
+                    <ion-button class="mt-4 pb-2" size="large" (click)="this.clickEmetteur()" color="danger" expand="block">Retirer</ion-button>
+                </div>
+                <div *ngIf="this.seeEmetteur">
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">N° CNI</ion-label>
+                        <ion-input name="cni" value="{{this.transaction.clientDepot.numero_cni}}" ></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">NOM & PRÉNOM</ion-label>
+                        <ion-input name="nameEnvoyeur" value="{{this.transaction.clientDepot.nom_complet}}"></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">MONTANT ENVOYÉ</ion-label>
+                        <ion-input name="montantEnvoyeur" value="{{this.transaction.montant}}"></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">TÉLÉPHONE</ion-label>
+                        <ion-input name="telephoneEnvoyeur" value="{{this.transaction.clientDepot.telephone}}" ></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">DATE D'ENVOI</ion-label>
+                        <ion-input  name="telEnvoyeur" value="{{this.transaction.date_depot}}"></ion-input>
+                    </ion-item>
+                    <ion-button class="mt-4 pb-2" size="large" color="danger" expand="block">Retirer</ion-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ion-content>

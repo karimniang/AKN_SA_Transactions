@@ -140,4 +140,12 @@ class AgenceController extends AbstractController
         return new JsonResponse($newUser,Response::HTTP_OK,[],true);
         //dd($userAgence);
     }
+
+    /**
+     * @Route ("/agences/parts", name="get_part_agence", methods="GET")
+     */
+    public function getPartAgence()
+    {
+
+    }
 }

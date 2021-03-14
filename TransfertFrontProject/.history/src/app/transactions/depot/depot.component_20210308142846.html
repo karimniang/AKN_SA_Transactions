@@ -1,0 +1,67 @@
+<ion-content>
+    <div class="h-100">
+        <app-header-transactions icon="arrow-redo" name="Dépôt"></app-header-transactions>
+
+        <div class="row bg-white mt-4 menuDepot">
+            <div class="col-6 pt-2 text-center">
+                <ion-text class="btn" (click)="this.clickEmetteur()"> Emetteur</ion-text>
+                <span *ngIf="this.seeEmetteur" class="barEmetteur"></span>
+            </div>
+            <div class="col-6 pt-2 text-center">
+                <ion-text class="btn" (click)="this.clickBenef()"> Bénéficiaire</ion-text>
+                <span *ngIf="this.seeBeneficiaire" class="barBenef"></span>
+            </div>
+        </div>
+        <div class="formTransaction">
+            <form action="">
+                <div *ngIf="this.seeEmetteur">
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">N° CNI</ion-label>
+                        <ion-input name="cni"></ion-input>
+                        
+                    </ion-item>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Nom</ion-label>
+                        <ion-input name="nom"></ion-input>
+                    </ion-item>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Prenom</ion-label>
+                        <ion-input name="prenom"></ion-input>
+                    </ion-item>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Téléphone</ion-label>
+                        <ion-input name="telephone"></ion-input>
+                    </ion-item>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Montant</ion-label>
+                        <ion-input name="montant"></ion-input>
+                    </ion-item>
+                    <ion-item lines="full" class="w-50" color="tint">
+                        <ion-label color="medium" position="floating">Frais</ion-label>
+                        <ion-input color="danger" value="123" name="frais"></ion-input>
+                    </ion-item>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Total</ion-label>
+                        <ion-input name="total"></ion-input>
+                    </ion-item>
+                    <ion-button class="mt-4 pb-2" (click)="this.clickBenef()" color="danger" expand="block">Suivant</ion-button>
+                </div>
+                <div *ngIf="this.seeBeneficiaire">
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Nom</ion-label>
+                        <ion-input name="nomBeneficiaire"></ion-input>
+                    </ion-item>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Prenom</ion-label>
+                        <ion-input name="prenomBeneficiaire"></ion-input>
+                    </ion-item>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Téléphone</ion-label>
+                        <ion-input name="telephoneBeneficiaire"></ion-input>
+                    </ion-item>
+                    <ion-button class="mt-4 pb-2" (click)="this.sendDepot()" color="danger" expand="block">Suivant</ion-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ion-content>

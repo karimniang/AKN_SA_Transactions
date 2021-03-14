@@ -1,0 +1,145 @@
+<ion-content>
+    <div class="h-100">
+        <app-header-transactions icon="arrow-redo" name="Dépôt"></app-header-transactions>
+
+        <div class="row bg-white mt-4 menuDepot">
+            <div class="col-6 pt-2 text-center">
+                <ion-text class="btn" (click)="this.clickEmetteur()"> Emetteur</ion-text>
+                <span *ngIf="this.seeEmetteur" class="barEmetteur"></span>
+            </div>
+            <div class="col-6 pt-2 text-center">
+                <ion-text class="btn" (click)="this.clickBenef()"> Bénéficiaire</ion-text>
+                <span *ngIf="this.seeBeneficiaire" class="barBenef"></span>
+            </div>
+        </div>
+        <div class="formTransaction">
+            <form action="" [formGroup]="this.formTransaction">
+                <div *ngIf="this.seeEmetteur">
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">N° CNI</ion-label>
+                        <ion-input formControlName="cni"></ion-input>
+                    </ion-item>
+                    <ion-text *ngIf="
+                        this.formTransaction.controls['cni'].invalid &&
+                        (this.formTransaction.controls['cni'].dirty ||
+                        this.formTransaction.controls['cni'].touched)
+                        "class="text-danger">
+                        <small *ngIf="this.formTransaction.controls['cni'].errors.required">
+                            CNI is required.
+                        </small>
+                    </ion-text>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Nom</ion-label>
+                        <ion-input formControlName="nom"></ion-input>
+                    </ion-item>
+                    <ion-text *ngIf="
+                        this.formTransaction.controls['nom'].invalid &&
+                        (this.formTransaction.controls['nom'].dirty ||
+                        this.formTransaction.controls['nom'].touched)
+                        "class="text-danger">
+                        <small *ngIf="this.formTransaction.controls['nom'].errors.required">
+                            name is required.
+                        </small>
+                    </ion-text>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Prenom</ion-label>
+                        <ion-input formControlName="prenom"></ion-input>
+                    </ion-item>
+                    <ion-text *ngIf="
+                        this.formTransaction.controls['prenom'].invalid &&
+                        (this.formTransaction.controls['prenom'].dirty ||
+                        this.formTransaction.controls['prenom'].touched)
+                        "class="text-danger">
+                        <small *ngIf="this.formTransaction.controls['prenom'].errors.required">
+                            Fisrtname is required.
+                        </small>
+                    </ion-text>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Téléphone</ion-label>
+                        <ion-input formControlName="telephone"></ion-input>
+                    </ion-item>
+                    <ion-text *ngIf="
+                            this.formTransaction.controls['telephone'].invalid &&
+                            (this.formTransaction.controls['telephone'].dirty ||
+                            this.formTransaction.controls['telephone'].touched)
+                            " class="text-danger">
+                        <small *ngIf="this.formTransaction.controls['telephone'].errors.required">
+                            telephone is required.
+                        </small>
+                        <small *ngIf="this.formTransaction.controls.telephone.errors.pattern">Le telephone saisi est
+                            invalide.</small>
+                    </ion-text>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Montant</ion-label>
+                        <ion-input type="number" (ionInput)="this.clickFrais($event)" formControlName="montant"></ion-input>
+                    </ion-item>
+                    <ion-text *ngIf="
+                        this.formTransaction.controls['montant'].invalid &&
+                        (this.formTransaction.controls['montant'].dirty ||
+                        this.formTransaction.controls['montant'].touched)
+                        "class="text-danger">
+                        <small *ngIf="this.formTransaction.controls['montant'].errors.required">
+                            Khalisse is required.
+                        </small>
+                    </ion-text>
+                    <ion-item lines="full" class="w-50" color="tint">
+                        <ion-label color="medium" position="floating">Frais</ion-label>
+                        <ion-input color="danger" formControlName="frais" value="{{this.tax}}" ></ion-input>
+                    </ion-item>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Total</ion-label>
+                        <ion-input formControlName="total" value="{{this.total}}"></ion-input>
+                    </ion-item>
+                    <ion-button class="mt-4 pb-2" (click)="this.clickBenef()" color="danger" expand="block">Suivant
+                    </ion-button>
+                </div>
+                <div *ngIf="this.seeBeneficiaire">
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Nom</ion-label>
+                        <ion-input formControlName="nomBeneficiaire"></ion-input>
+                    </ion-item>
+                    <ion-text *ngIf="
+                        this.formTransaction.controls['nomBeneficiaire'].invalid &&
+                        (this.formTransaction.controls['nomBeneficiaire'].dirty ||
+                        this.formTransaction.controls['nomBeneficiaire'].touched)
+                        "class="text-danger">
+                        <small *ngIf="this.formTransaction.controls['nomBeneficiaire'].errors.required">
+                            name Beneficiaire is required.
+                        </small>
+                    </ion-text>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Prenom</ion-label>
+                        <ion-input formControlName="prenomBeneficiaire"></ion-input>
+                    </ion-item>
+                    <ion-text *ngIf="
+                        this.formTransaction.controls['prenomBeneficiaire'].invalid &&
+                        (this.formTransaction.controls['prenomBeneficiaire'].dirty ||
+                        this.formTransaction.controls['prenomBeneficiaire'].touched)
+                        "class="text-danger">
+                        <small *ngIf="this.formTransaction.controls['prenomBeneficiaire'].errors.required">
+                            Fisrtname Beneficiaire is required.
+                        </small>
+                    </ion-text>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Téléphone</ion-label>
+                        <ion-input formControlName="telephoneBeneficiaire"></ion-input>
+                    </ion-item>
+                    <ion-text *ngIf="
+                            this.formTransaction.controls['telephoneBeneficiaire'].invalid &&
+                            (this.formTransaction.controls['telephoneBeneficiaire'].dirty ||
+                            this.formTransaction.controls['telephoneBeneficiaire'].touched)
+                            " class="text-danger">
+                        <small *ngIf="this.formTransaction.controls['telephoneBeneficiaire'].errors.required">
+                            Telephone benef is required.
+                        </small>
+                        <small *ngIf="this.formTransaction.controls.telephoneBeneficiaire.errors.pattern">Le telephone
+                            saisi est
+                            invalide.</small>
+                    </ion-text>
+                    <ion-button class="mt-4 pb-2" (click)="this.sendDepot()" color="danger" expand="block">Suivant
+                    </ion-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ion-content>

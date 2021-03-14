@@ -1,0 +1,32 @@
+
+<ion-content>
+  <div class="w-50 menuList">
+    <ion-list class="">
+      <ion-item class="ion-margin-top">
+        <ion-icon color="light" name="home"></ion-icon>
+        <ion-label routerLink="/tabs/home" class="ml-2">Home</ion-label>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+        <ion-icon color="light" name="sync"></ion-icon>
+        <ion-label routerLink="/tabs/transaction" class="ml-2">Transactions</ion-label>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+        <ion-icon color="light" name="layers"></ion-icon>
+        <ion-label routerLink="/tabs/commission" class="ml-2">commissions</ion-label>
+      </ion-item>
+      <ion-item class="ion-margin-top" lines="none">
+        <ion-icon color="light" name="calculator"></ion-icon>
+        <ion-label routerLink="/tabs/calculFrais" class="ml-2">Calculateur</ion-label>
+      </ion-item>
+      <!-- <ion-item class="ion-margin-top" lines="none">
+        <ion-icon color="light" name="log-out"></ion-icon>
+        <ion-label class="ml-2">Deconnexion</ion-label>
+      </ion-item> -->
+    </ion-list>
+  </div>
+ 
+  <div lines="none"  class="dcnLabel">
+    <ion-label class="mr-2">Deconnexion<ion-icon color="light" class="ionDcn" name="arrow-forward"></ion-icon>
+    </ion-label>
+  </div>
+</ion-content>

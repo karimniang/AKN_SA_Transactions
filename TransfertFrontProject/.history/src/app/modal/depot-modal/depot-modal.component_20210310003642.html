@@ -1,0 +1,75 @@
+<div class="mainAlert">
+    <div *ngIf="type =='confirmation'">
+        <div class="w-100">
+            <p class="ml-4 header">Confirmation</p>
+        </div>
+        <div class="formDiv">
+            <ion-item lines="none" color="tint">
+                <ion-label color="medium" position="floating">Emetteur</ion-label>
+                <ion-input name="emetteur" value="{{this.data.envoyeur.nom_complet}}"></ion-input>
+            </ion-item>
+            <ion-item lines="none" color="tint">
+                <ion-label color="medium" position="floating">Telephone</ion-label>
+                <ion-input name="tel" value="{{this.data.envoyeur.telephone}}"></ion-input>
+            </ion-item>
+            <ion-item lines="none" color="tint">
+                <ion-label color="medium" position="floating">N° CNI</ion-label>
+                <ion-input name="cni" value="{{this.data.envoyeur.numero_cni}}"></ion-input>
+            </ion-item>
+            <ion-item lines="none" color="tint">
+                <ion-label color="medium" position="floating">Montant</ion-label>
+                <ion-input name="montant" value="{{this.data.montant}}"></ion-input>
+            </ion-item>
+            <ion-item lines="none" color="tint">
+                <ion-label color="medium" position="floating">Recepteur</ion-label>
+                <ion-input name="recepteur" value="{{this.data.receveur.nom_complet}}"></ion-input>
+            </ion-item>
+            <ion-item lines="none" class="mb-2" color="tint">
+                <ion-label color="medium" position="floating">Telephone Receveur</ion-label>
+                <ion-input name="tel" value="{{this.data.receveur.telephone}}"></ion-input>
+            </ion-item>
+            <div class="mb-2">
+                <button (click)="this.dismiss()" class="btn btn-light ml-2"> Cancel </button>
+                <button class="btn btn-danger float-right mr-2" (click)="this.confirm()"> Confirmer </button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="type == 'reussi'">
+        <div class="w-100">
+            <p class="ml-4 header">Transfert Reussi</p>
+        </div>
+        <div class="formDivReussi">
+            <ion-item lines="none" color="tint">
+                <ion-label color="medium" position="floating">Infos</ion-label>
+                <ion-textarea name="info" value="Vous avez envoyé {{this.data.montant}} à {{this.data.receveur.nom_complet}} le {{this.succes.date_depot|date}}"></ion-textarea>
+            </ion-item>
+            <ion-item lines="none" class="mb-2" color="tint">
+                <ion-label color="medium" position="floating">Code de transaction</ion-label>
+                <ion-input name="code" value="{{this.succes.code_transaction}}"></ion-input>
+            </ion-item>
+            <div class="mb-2">
+                <ion-icon button color="danger" name="arrow-redo" class="ml-4"></ion-icon>
+                <ion-icon button color="danger" name="mail" class="float-right mr-4"></ion-icon>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="type == 'erreur'">
+        <div class="w-100">
+            <p class="ml-4 header">Erreur <ion-icon name="skull"></ion-icon></p>
+        </div>
+        <div class="formDivReussi">
+            <ion-item lines="none" color="tint">
+                <ion-label color="medium" position="floating">Erreur Transaction</ion-label>
+                <ion-textarea name="erreur" value="{{this.error.error.detail}}"></ion-textarea>
+            </ion-item>
+            <!-- <ion-item lines="none" class="mb-2" color="tint">
+                <ion-label color="medium" position="floating">Code de transaction</ion-label>
+                <ion-input name="code" value="12345678"></ion-input>
+            </ion-item> -->
+            <div class="mb-2 mt-2">
+                <button (click)="this.dismiss()" class="btn btn-danger ml-4"> Retour </button>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,59 @@
+<ion-content>
+    <div class="h-100">
+        <app-header-transactions icon="arrow-undo" name="Retrait"></app-header-transactions>
+
+        <div class="row bg-white mt-4 menuDepot">
+            <div class="col-6 pt-2 text-center">
+                <ion-text class="btn" (click)="this.clickBenef()"> Bénéficiaire</ion-text>
+                <span *ngIf="this.seeBeneficiaire" class="barBenef"></span>
+            </div>
+            <div class="col-6 pt-2 text-center">
+                <ion-text class="btn" (click)="this.clickEmetteur()"> Emetteur</ion-text>
+                <span *ngIf="this.seeEmetteur" class="barEmetteur"></span>
+            </div>
+        </div>
+        <div class="formTransaction">
+            <form action="">
+                <div *ngIf="this.seeBeneficiaire">
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Nom</ion-label>
+                        <ion-input name="nom"></ion-input>
+                    </ion-item>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Prenom</ion-label>
+                        <ion-input name="prenom"></ion-input>
+                    </ion-item>
+                    <ion-item lines="full" class="" color="tint">
+                        <ion-label color="medium" position="floating">Téléphone</ion-label>
+                        <ion-input name="telephone"></ion-input>
+                    </ion-item>
+                    <ion-button class="mt-4 pb-2" (click)="this.clickEmetteur()" color="danger" expand="block">Retirer</ion-button>
+                </div>
+                <div *ngIf="this.seeEmetteur">
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">N° CNI</ion-label>
+                        <ion-input value="12345678" name="cni"></ion-input>
+                        
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">NOM & PRÉNOM</ion-label>
+                        <ion-input value="Lo Amath" name="nom"></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">TÉLÉPHONE</ion-label>
+                        <ion-input value="776555555" name="telephone"></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">MONTANT</ion-label>
+                        <ion-input value="400 000" name="montant"></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="" color="tint">
+                        <ion-label color="medium" position="floating">DATE D'ENVOI</ion-label>
+                        <ion-input value="12-05-2010" name="total"></ion-input>
+                    </ion-item>
+                    <ion-button class="mt-4 pb-2" color="danger" expand="block">Retirer</ion-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ion-content>

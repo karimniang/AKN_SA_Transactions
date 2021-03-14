@@ -1,0 +1,29 @@
+<ion-content>
+  <div class="h-100">
+    <div class="headerTop">
+      <ion-icon class="iconHome" name="home" routerLink="/tabs/home" color="secondary ml-4 mt-4"></ion-icon>
+      <img src="../../../assets/image/Logo MONEY SA 1.png" class="positionLogo" alt="">
+      <p class="labelPrint">
+        <ion-icon color="primary" name="calculator-outline"></ion-icon>Calculateur
+      </p>
+      <span class="barBottom"></span>
+    </div>
+
+    <div class="formCalcul">
+      <form action="">
+        <ion-item lines="full" class="" color="tint">
+          <ion-label color="medium" position="floating">Type</ion-label>
+          <ion-input [(ngModel)]="this.montant" name="type"></ion-input>
+  
+        </ion-item>
+        <ion-item lines="full" class="" color="tint">
+          <ion-label color="medium" position="floating">Montant</ion-label>
+          <ion-input name="montant"></ion-input>
+        </ion-item>
+        <ion-button size="small" class="ion-margin-top float-right" color="danger">Calculer</ion-button>
+      </form>
+    </div>
+  </div>
+
+  
+</ion-content>

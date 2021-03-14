@@ -1,0 +1,44 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <div *ngIf="this.userConnected.role[0] == 'ROLE_ADMIN_AGENCE'">
+      <ion-tab-button routerLink="/tabs/home" tab="home">
+        <ion-icon name="home"></ion-icon>
+        <!-- <ion-label>Tab 1</ion-label> -->
+      </ion-tab-button>
+      
+      <ion-tab-button routerLink="/tabs/transaction" tab="transaction">
+        <ion-icon name="sync-outline"></ion-icon>
+        <!-- <ion-label>Tab 1</ion-label> -->
+      </ion-tab-button>
+  
+      <ion-tab-button routerLink="/tabs/commission" tab="commission">
+        <ion-icon name="layers-outline"></ion-icon>
+        <!-- <ion-label>Tab 2</ion-label> -->
+      </ion-tab-button>
+  
+      <ion-tab-button routerLink="/tabs/calculFrais" tab="calculFrais">
+        <ion-icon name="calculator"></ion-icon>
+        <!-- <ion-label>Tab 3</ion-label> -->
+      </ion-tab-button>
+    </div>
+    <div *ngIf="this.userConnected.role[0] == 'ROLE_UTILISATEUR_AGENCE'">
+      <ion-tab-button routerLink="/tabs/home" tab="home">
+        <ion-icon name="home"></ion-icon>
+        <!-- <ion-label>Tab 1</ion-label> -->
+      </ion-tab-button>
+      
+      <ion-tab-button routerLink="/tabs/transaction" tab="transaction">
+        <ion-icon name="sync-outline"></ion-icon>
+        <!-- <ion-label>Tab 1</ion-label> -->
+      </ion-tab-button>
+  
+      <ion-tab-button routerLink="/tabs/calculFrais" tab="calculFrais">
+        <ion-icon name="calculator"></ion-icon>
+        <!-- <ion-label>Tab 3</ion-label> -->
+      </ion-tab-button>
+    </div>
+    
+  </ion-tab-bar>
+
+</ion-tabs>

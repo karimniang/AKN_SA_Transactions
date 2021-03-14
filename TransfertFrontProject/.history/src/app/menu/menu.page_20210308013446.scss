@@ -1,0 +1,30 @@
+ion-content {
+    --ion-background-color:#51BFD0;
+}
+.menuList {
+    ion-label {
+        color:white;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 25px;
+    }
+    position: relative;
+    top: 15%;
+}
+.dcnLabel {
+    font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 25px;
+    color: whitesmoke;
+    position: relative;
+    left: 3%;
+    top: 50%;
+    .ionDcn{
+        position: relative;
+        right: 55%;
+    }
+}

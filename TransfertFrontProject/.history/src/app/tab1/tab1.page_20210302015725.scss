@@ -1,0 +1,30 @@
+.solde {
+    height: 35vh;
+    .soldeCompte {
+        .small {
+            font-size: small;
+            display: block;
+        }
+        .montant {
+            // width: 145px;
+            // height: 46px;
+            font-family: Helvetica;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30px;
+            line-height: 28px;
+            /* identical to box height */
+
+
+            color: #07AEEF;
+        }
+        background-color: white;
+        width: 80%;
+        left: 10%;
+        right: 10%;
+        top: 18%;
+        height: 80px;
+        border-radius: 10%;
+        position: absolute;
+    }
+}

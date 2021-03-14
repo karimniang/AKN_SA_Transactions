@@ -1,0 +1,31 @@
+.headerTop {
+  height: 25vh;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 10%;
+  background-color: white;
+
+  .labelPrint {
+    position: absolute;
+    width: 20%;
+    left: 40%;
+    right: 40%;
+    top: 18%;
+    color: blueviolet;
+  }
+
+  .barBottom {
+    position: absolute;
+    width: 30%;
+    left: 35%;
+    right: 35%;
+    top: 22%;
+    height: 3px;
+    background: #07AEEF;
+    box-shadow: 0px 4px 4px rgba(196, 63, 21, 0.1);
+    border-radius: 40px;
+  }
+}
+
+.menuDepot {
+  height: 7vh;
+}

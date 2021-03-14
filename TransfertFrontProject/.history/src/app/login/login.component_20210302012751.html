@@ -1,0 +1,26 @@
+<div class="monBody">
+  <div class="w-100 bg-white ourLogo">
+    <img class="positionImg" src="../../assets/image/Logo MONEY SA 1.png" alt="logo">
+    <p class="login">Login</p>
+    <span class="bar"></span>
+  </div>
+
+  <div class="w-75 mx-auto mt-4">
+    <form action="" class="formLogin">
+      <ion-item lines="full" class="mt-4 mb-4" color="tint">
+        <ion-label position="floating" >Username</ion-label>
+        <ion-input  name="username"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full" class="mt-2 mb-2" color="tint">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input  name="password" ></ion-input>
+        <!-- <ion-button class="iconPwd" ><ion-icon name="eye-outline"></ion-icon></ion-button> -->
+      </ion-item>
+
+      <small class="ml-4 btn btn-sm" >Mot de pass oublié ?</small>
+      
+      <ion-button class="cnButton" (click)="this.login()" color="secondary" expand="block" >Connexion</ion-button>
+    </form>
+   </div>
+</div>

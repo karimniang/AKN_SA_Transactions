@@ -1,0 +1,16 @@
+.solde {
+    height: 35vh;
+    .soldeCompte {
+        p {
+            font-size: small;
+        }
+        background-color: white;
+        width: 80%;
+        left: 10%;
+        right: 10%;
+        top: 14%;
+        height: 80px;
+        border-radius: 10%;
+        position: absolute;
+    }
+}
