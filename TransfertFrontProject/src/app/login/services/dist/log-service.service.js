@@ -43,6 +43,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.LogServiceService = void 0;
+var http_1 = require("@angular/common/http");
 var core_1 = require("@angular/core");
 var jwt_decode_1 = require("jwt-decode");
 var LogServiceService = /** @class */ (function () {
@@ -50,10 +51,13 @@ var LogServiceService = /** @class */ (function () {
         this.httpClient = httpClient;
         this.localStorage = window.localStorage;
         this.urlApi = "https://127.0.0.1:8000/api/login_check";
+        //urlApi = "http://192.168.1.20:8000/api/login_check"
+        this.httpHeader = {
+            headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' })
+        };
     }
-    //urlApi = "http://192.168.1.20:8000/api/login_check"
     LogServiceService.prototype.login = function (username, password) {
-        return this.httpClient.post(this.urlApi, { username: username, password: password }).toPromise();
+        return this.httpClient.post(this.urlApi, { username: username, password: password }, this.httpHeader).toPromise();
     };
     LogServiceService.prototype.saveToken = function (username, password) {
         return __awaiter(this, void 0, void 0, function () {

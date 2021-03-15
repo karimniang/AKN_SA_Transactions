@@ -38,6 +38,7 @@ var Tab2Page = /** @class */ (function () {
                 }
             });
             console.log(_this.allTransaction);
+            _this.sort();
         });
     };
     Tab2Page.prototype.clickTransactions = function () {
@@ -54,11 +55,24 @@ var Tab2Page = /** @class */ (function () {
         this.sort();
     };
     Tab2Page.prototype.sort = function () {
+        var _this = this;
         if (this.sortDirection == 1) {
+            this.allTransaction = this.allTransaction.sort(function (a, b) {
+                var valA = a[_this.sortKey];
+                var valB = b[_this.sortKey];
+                return valA.toString().localeCompare(valB);
+            });
         }
         else if (this.sortDirection == 2) {
+            this.allTransaction = this.allTransaction.sort(function (a, b) {
+                var valA = a[_this.sortKey];
+                var valB = b[_this.sortKey];
+                return valB.toString().localeCompare(valA);
+            });
         }
         else {
+            this.sortDirection = 0;
+            this.sortKey = null;
         }
     };
     Tab2Page = __decorate([

@@ -1,0 +1,106 @@
+<ion-content>
+  <div class="headerTop">
+    <ion-icon class="iconHome" name="home" routerLink="/tabs/home" color="secondary ml-4 mt-4"></ion-icon>
+    <img src="../../../assets/image/Logo MONEY SA 1.png" class="positionLogo" alt="">
+    <p class="text-center labelPrint1" (click)="this.clickTransactions()">
+      <ion-icon name="sync-outline"></ion-icon>Mes Transactions
+    </p>
+    <span *ngIf="this.tabTransactions" class="barBottomLab1"></span>
+
+    <p class="text-center labelPrint2" (click)="this.clickAllTransactions()">
+      <ion-icon name="sync-circle-outline"></ion-icon>Toutes les Transactions
+    </p>
+    <span *ngIf="this.tabAllTransactions" class="barBottomLab2"></span>
+  </div>
+
+  <div *ngIf="this.tabAllTransactions">
+    toutes
+    <!-- <ion-searchbar></ion-searchbar> -->
+    <div *ngIf="userConnected">
+      <ion-row class="textSize">
+        <ion-col size="2">Date</ion-col>
+        <ion-col size="3">Utilisateur</ion-col>
+        <ion-col size="2">Type</ion-col>
+        <ion-col size="3">Montant</ion-col>
+        <ion-col size="2">Frais</ion-col>
+      </ion-row>
+      <div *ngFor="let transaction of this.allTransaction">
+        <div *ngIf="transaction.compteRetrait && (transaction.compteTransaction.id == this.userConnected.agence.id && transaction.compteRetrait.id == this.userConnected.agence.id)">
+          <ion-row class="textSize">
+            <ion-col size="2">{{transaction.date_depot|date: 'dd/MM/yy'}}</ion-col>
+            <ion-col size="3">{{transaction.userDepot.firstname}}</ion-col>
+            <ion-col size="2">Depot</ion-col>
+            <ion-col size="3">{{transaction.montant}}</ion-col>
+            <ion-col size="2">{{transaction.frais}}</ion-col>
+          </ion-row>
+          <ion-row class="textSize">
+            <ion-col size="2">{{transaction.date_depot|date: 'dd/MM/yy'}}</ion-col>
+            <ion-col size="3">{{"Utilisateur"}}</ion-col>
+            <ion-col size="2">Retrait</ion-col>
+            <ion-col size="3">{{transaction.montant}}</ion-col>
+            <ion-col size="2">{{transaction.frais}}</ion-col>
+          </ion-row>
+        </div>
+        <div *ngIf="transaction.compteRetrait && (transaction.compteTransaction.id != this.userConnected.agence.id && transaction.compteRetrait.id == this.userConnected.agence.id)">
+          <ion-row class="textSize">
+            <ion-col size="2">{{transaction.date_depot|date: 'dd/MM/yy'}}</ion-col>
+            <ion-col size="3">{{"Utilisateur"}}</ion-col>
+            <ion-col size="2">Retrait</ion-col>
+            <ion-col size="3">{{transaction.montant}}</ion-col>
+            <ion-col size="2">{{transaction.frais}}</ion-col>
+          </ion-row>
+        </div>
+        <div *ngIf="transaction.compteRetrait && (transaction.compteTransaction.id == this.userConnected.agence.id && transaction.compteRetrait.id != this.userConnected.agence.id)">
+          <ion-row class="textSize">
+            <ion-col size="2">{{transaction.date_depot|date: 'dd/MM/yy'}}</ion-col>
+            <ion-col size="3">{{"Utilisateur"}}</ion-col>
+            <ion-col size="2">Retrait</ion-col>
+            <ion-col size="3">{{transaction.montant}}</ion-col>
+            <ion-col size="2">{{transaction.frais}}</ion-col>
+          </ion-row>
+        </div>
+        <div *ngIf="!transaction.compteRetrait && (transaction.compteTransaction.id == this.userConnected.agence.id)">
+          <ion-row class="textSize">
+            <ion-col size="2">{{transaction.date_depot|date: 'dd/MM/yy'}}</ion-col>
+            <ion-col size="3">{{"Utilisateur"}}</ion-col>
+            <ion-col size="2">Depot</ion-col>
+            <ion-col size="3">{{transaction.montant}}</ion-col>
+            <ion-col size="2">{{transaction.frais}}</ion-col>
+          </ion-row>
+        </div>
+
+      </div>
+      
+
+      <!-- autre methode qui marche pas -->
+      <!-- <ion-row class="textSize" *ngFor="let transaction of this.compte; let i = index">
+          <ion-col size="2">{{transaction.date_depot|date: 'dd/MM/yy'}}</ion-col>
+          <ion-col size="3">{{"Utilisateur"}}</ion-col>
+          <ion-col size="2">Depot</ion-col>
+          <ion-col size="3">{{transaction.montant}}</ion-col>
+          <ion-col size="2">{{transaction.frais}}</ion-col>
+      </ion-row> -->
+
+
+      <!-- Autre methode marche pas non plus -->
+      <!-- <ion-row class="textSize" *ngFor="let transaction of this.compte.transactions; let i = index">
+        <ion-col size="2">{{transaction.date_depot|date: 'dd/MM/yy'}}</ion-col>
+        <ion-col size="3">{{"Utilisateur"}}</ion-col>
+        <ion-col size="2">Depot</ion-col>
+        <ion-col size="3">{{transaction.montant}}</ion-col>
+        <ion-col size="2">{{transaction.frais}}</ion-col>
+      </ion-row>
+      <ion-row class="textSize" *ngFor="let transactionRetrait of this.compte.transactionsRetrait; let i = index">
+        <ion-col size="2">{{transactionRetrait.date_depot|date: 'dd/MM/yy'}}</ion-col>
+        <ion-col size="3">{{"Utilisateur"}}</ion-col>
+        <ion-col size="2">Retrait</ion-col>
+        <ion-col size="3">{{transactionRetrait.montant}}</ion-col>
+        <ion-col size="2">{{transactionRetrait.frais}}</ion-col>
+      </ion-row> -->
+    </div>
+    
+  </div>
+  <div *ngIf="this.tabTransactions">
+    mes
+  </div>
+</ion-content>

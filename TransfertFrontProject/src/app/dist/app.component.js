@@ -12,18 +12,18 @@ var core_2 = require("@capacitor/core");
 var SplashScreen = core_2.Plugins.SplashScreen;
 var AppComponent = /** @class */ (function () {
     function AppComponent(router, logService) {
+        // if (!this.logService.loggedIn()) {
         this.router = router;
         this.logService = logService;
-        if (!this.logService.loggedIn()) {
-            this.router.navigate(['/login']);
-        }
+        //   this.router.navigate(['/login']);
+        // }
         //console.log(this.logService.isTokenExpired());
         //console.log(window.location.href.includes('login'))
-        if (this.logService.isTokenExpired()) {
-            //console.log("expire");
-            localStorage.clear();
-            this.router.navigate(['/login']);
-        }
+        //  if (this.logService.isTokenExpired()) {
+        //    //console.log("expire");
+        //    localStorage.clear();
+        //    this.router.navigate(['/login']);
+        //  }
         // SplashScreen.show({
         //   showDuration: 4000,
         //   autoHide: true
