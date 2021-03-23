@@ -9,22 +9,36 @@ exports.__esModule = true;
 exports.Tab2Page = void 0;
 var core_1 = require("@angular/core");
 var Tab2Page = /** @class */ (function () {
-    function Tab2Page(TransactionService) {
+    function Tab2Page(TransactionService, route) {
         this.TransactionService = TransactionService;
+        this.route = route;
         this.sortKey = null;
+        this.sortDirectionMontant = 0;
+        this.sortDirectionFrais = 0;
+        this.sortDirectionDate = 0;
         this.sortDirection = 0;
         this.allTransaction = [];
+        this.total = 0;
         this.i = 0;
     }
     Tab2Page.prototype.ngOnInit = function () {
         var _this = this;
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         //Add 'implements OnInit' to the class.
-        this.tabTransactions = false;
-        this.tabAllTransactions = true;
+        //console.log(this.route.snapshot.paramMap.get('only'));
+        this.only = this.route.snapshot.paramMap.get('only');
+        if (this.only) {
+            this.tabTransactions = true;
+            this.tabAllTransactions = false;
+            console.log(document.getElementsByClassName('labelPrint1'));
+        }
+        else {
+            this.tabTransactions = false;
+            this.tabAllTransactions = true;
+        }
         this.TransactionService.getUserConnected().subscribe(function (res) {
             _this.userConnected = res;
-            console.log(_this.userConnected);
+            //console.log(this.userConnected);
         });
         this.TransactionService.getAllTransaction().subscribe(function (res) {
             //this.compte = res['hydra:member'];
@@ -38,6 +52,10 @@ var Tab2Page = /** @class */ (function () {
                 }
             });
             console.log(_this.allTransaction);
+            _this.allTransaction.forEach(function (elem) {
+                _this.total += elem['montant'];
+            });
+            console.log(_this.total);
             _this.sort();
         });
     };

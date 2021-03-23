@@ -29,11 +29,21 @@ var TransactionService = /** @class */ (function () {
     TransactionService.prototype.getAllTransaction = function () {
         return this.httpClient.get(this.urlApi, this.httpOptions);
     };
+    TransactionService.prototype.changeStatut = function (statut, id) {
+        return this.httpClient.put(this.urlApi + id, { 'statut': statut }, this.httpOptions);
+    };
     TransactionService.prototype.getTransactionByCode = function (code) {
         return this.httpClient.get(this.urlApi + "bycode/" + code, this.httpOptions);
     };
     TransactionService.prototype.getUserConnected = function () {
         return this.httpClient.get("https://127.0.0.1:8000/api/users/connected", this.httpOptions);
+    };
+    TransactionService.prototype.reloadCompte = function () {
+        var _this = this;
+        this.getUserConnected().subscribe(function (res) {
+            _this.compte = res['agence']['compte'];
+            console.log(_this.compte);
+        });
     };
     TransactionService = __decorate([
         core_1.Injectable({

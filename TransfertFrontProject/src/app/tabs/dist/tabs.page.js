@@ -22,7 +22,7 @@ var TabsPage = /** @class */ (function () {
         // }
         this.transactionService.getUserConnected().subscribe(function (res) {
             _this.userConnected = res;
-            console.log(_this.userConnected);
+            //console.log(this.userConnected);
         });
     };
     TabsPage = __decorate([

@@ -76,6 +76,7 @@ var LoginComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.logService.getToken()];
                     case 2:
                         _a.token = (_b.sent()) ? jwt_decode_1["default"](this.logService.getToken()) : null;
+                        console.log(this.token);
                         if (this.token != null) {
                             //console.log(this.token.roles);
                             this.redirectByRole(this.token.roles[0]);

@@ -52,9 +52,8 @@ var Tab1Page = /** @class */ (function () {
         this.router = router;
         this.logService = logService;
         this.transactionService = transactionService;
-        this.name = "eye-outline";
         this.montant = "150000";
-        this.soldeVue = false;
+        this.soldeVue = true;
         // if (this.logService.isTokenExpired()) {
         //   this.disconnect();
         // }
@@ -63,12 +62,22 @@ var Tab1Page = /** @class */ (function () {
         var _this = this;
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         //Add 'implements OnInit' to the class.
+        this.name = "eye-outline";
+        this.transactionService.reloadCompte();
         this.transactionService.getUserConnected().subscribe(function (res) {
             _this.userConnected = res;
             console.log(_this.userConnected);
+            _this.compte = _this.transactionService.compte;
+            console.log(_this.compte);
         });
+        // this.transactionService.reloadCompte();
+        // console.log(this.compte);
+        // console.log(this.transactionService.compte);
+        //this.getCompte();
     };
     Tab1Page.prototype.clickVue = function () {
+        // document.getElementById("compteContainer").style.cssText = "-webkit-filter: blur(5px); filter: blur(5px); -moz-filter: blur(5px);-o-filter: blur(5px); -ms-filter: blur(5px);";
+        //this.name = "eye-off-outline";
         this.soldeVue = !this.soldeVue;
         if (this.soldeVue) {
             this.name = "eye-outline";

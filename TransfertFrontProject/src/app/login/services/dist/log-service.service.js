@@ -53,11 +53,11 @@ var LogServiceService = /** @class */ (function () {
         this.urlApi = "https://127.0.0.1:8000/api/login_check";
         //urlApi = "http://192.168.1.20:8000/api/login_check"
         this.httpHeader = {
-            headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' })
+            headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json', 'access-control-allow-origin': '*' })
         };
     }
     LogServiceService.prototype.login = function (username, password) {
-        return this.httpClient.post(this.urlApi, { username: username, password: password }, this.httpHeader).toPromise();
+        return this.httpClient.post(this.urlApi, { username: username, password: password }).toPromise();
     };
     LogServiceService.prototype.saveToken = function (username, password) {
         return __awaiter(this, void 0, void 0, function () {
@@ -67,6 +67,7 @@ var LogServiceService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.login(username, password)];
                     case 1:
                         result = _a.sent();
+                        console.log(result);
                         localStorage.clear();
                         this.myToken = result.token;
                         this.localStorage.setItem('token_brut', this.myToken);

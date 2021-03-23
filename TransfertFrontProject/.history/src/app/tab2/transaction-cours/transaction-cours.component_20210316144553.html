@@ -1,0 +1,27 @@
+<ion-content>
+    <div class="headerTop">
+        <ion-icon class="iconHome" name="home" routerLink="/tabs/home" color="secondary ml-4 mt-4"></ion-icon>
+        <img src="../../../assets/image/Logo MONEY SA 1.png" class="positionLogo" alt="">
+        <p class="text-center labelPrint1">
+            <ion-icon name="refresh-circle-outline"></ion-icon> Transactions Cours
+        </p>
+        <span class="barBottomLab1" ></span>
+    
+    </div>
+
+    <div class="mt-2 ml-4">
+        <ion-row>
+            <ion-col size="3">Date</ion-col>
+            <ion-col size="3">Montant</ion-col>
+            <ion-col size="2">Frais</ion-col>
+            <ion-col size="4">Etat</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of this.allTransaction">
+            <ion-col size="3">{{item.dateDepot}}</ion-col>
+            <ion-col size="3">{{item.montant}}</ion-col>
+            <ion-col size="2">{{item.frais}}</ion-col>
+            <ion-col size="4">{{item.statut}}</ion-col>
+        </ion-row>
+
+    </div>
+</ion-content>

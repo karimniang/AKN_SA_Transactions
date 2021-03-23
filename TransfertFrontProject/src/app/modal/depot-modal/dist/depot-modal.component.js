@@ -67,6 +67,7 @@ var DepotModalComponent = /** @class */ (function () {
                     console.log(res);
                     _this.succes = res;
                     _this.type = "reussi";
+                    _this.TransactionService.reloadCompte();
                 }, function (error) {
                     console.log(error);
                     _this.error = error;
@@ -80,15 +81,13 @@ var DepotModalComponent = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        console.log("ok");
-                        return [4 /*yield*/, this.dismiss()
-                            //window.location.href="/transaction/depot"
-                        ];
+                    case 0: 
+                    //console.log("ok");
+                    return [4 /*yield*/, this.dismiss()];
                     case 1:
+                        //console.log("ok");
                         _a.sent();
-                        //window.location.href="/transaction/depot"
-                        this.router.navigate(['/transaction/depot']);
+                        window.location.href = "/transaction/depot";
                         return [2 /*return*/];
                 }
             });

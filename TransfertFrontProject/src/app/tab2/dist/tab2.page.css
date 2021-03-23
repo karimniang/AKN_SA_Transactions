@@ -16,6 +16,9 @@ ion-content {
   color: blueviolet;
   font-size: 0.7rem;
 }
+.headerTop .labelPrint1.only {
+  left: 30%;
+}
 .headerTop .labelPrint2 {
   position: absolute;
   width: 45%;
@@ -33,6 +36,9 @@ ion-content {
   background: #07aeef;
   box-shadow: 0px 4px 4px rgba(196, 63, 21, 0.1);
   border-radius: 40px;
+}
+.headerTop .barBottomLab1.only {
+  left: 30%;
 }
 .headerTop .barBottomLab2 {
   position: absolute;
@@ -61,4 +67,22 @@ ion-content {
 
 .textSize {
   font-size: 0.75rem;
+}
+
+.mesTransactions {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.allTotal {
+  margin-left: 110px;
+  margin-top: 15px;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: orangered;
+}
+.allTotal .total {
+  border-radius: 15px;
+  background-color: orangered;
 }

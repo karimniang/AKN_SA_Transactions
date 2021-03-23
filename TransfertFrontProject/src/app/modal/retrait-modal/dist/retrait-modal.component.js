@@ -63,15 +63,31 @@ var RetraitModalComponent = /** @class */ (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 this.transactionService.makeRetrait(this.data).subscribe(function (res) {
-                    console.log(res);
+                    //console.log(res);
                     _this.succes = res;
                     _this.type = "reussi";
                 }, function (error) {
-                    console.log(error);
+                    //console.log(error);
                     _this.error = error;
                     _this.type = "erreur";
                 });
                 return [2 /*return*/];
+            });
+        });
+    };
+    RetraitModalComponent.prototype.redirect = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: 
+                    //console.log("ok");
+                    return [4 /*yield*/, this.dismiss()];
+                    case 1:
+                        //console.log("ok");
+                        _a.sent();
+                        window.location.href = "/transaction/retrait";
+                        return [2 /*return*/];
+                }
             });
         });
     };

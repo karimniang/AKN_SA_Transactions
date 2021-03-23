@@ -8,8 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.AppComponent = void 0;
 var core_1 = require("@angular/core");
-var core_2 = require("@capacitor/core");
-var SplashScreen = core_2.Plugins.SplashScreen;
 var AppComponent = /** @class */ (function () {
     function AppComponent(router, logService) {
         // if (!this.logService.loggedIn()) {
@@ -24,10 +22,6 @@ var AppComponent = /** @class */ (function () {
         //    localStorage.clear();
         //    this.router.navigate(['/login']);
         //  }
-        // SplashScreen.show({
-        //   showDuration: 4000,
-        //   autoHide: true
-        // });
     }
     AppComponent = __decorate([
         core_1.Component({
